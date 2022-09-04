@@ -2,4 +2,24 @@ body {
   margin: 0;
   padding: 0;
   background: #3E49AA;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+
+a { 
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: inherit;
 }

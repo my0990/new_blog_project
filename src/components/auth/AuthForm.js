@@ -1,4 +1,4 @@
-import LoginTemplate from "./LoginTemplate";
+import LoginTemplate from "./AuthTemplate";
 import StyledButton from "../commons/StyledButton";
 import StyledInput from "../commons/StyledInput";
 import styled from "styled-components";
@@ -34,18 +34,27 @@ const ErrorMessage = styled.div`
     color: red;
     margin-bottom: 10px;
     height: 21px;
+    margin-bottom: 1rem;
 `
 
-const SignInTemplate = () => {
+const AuthForm = ({type, error}) => {
+    
     return(
         <LoginTemplate>
-            <ErrorMessage>비밀번호가 틀립니다</ErrorMessage>
+            <ErrorMessage>{error}</ErrorMessage>
             <StyledInput>아이디</StyledInput>
             <StyledInput>비밀번호</StyledInput>
-            <StyledButton>로그인</StyledButton>
-            <CenterLine>or</CenterLine>
+            {type === 'register'?
+            <>
+                <StyledInput>비밀번호확인</StyledInput>
+                <StyledButton>로그인</StyledButton>
+                <CenterLine>or</CenterLine>
+            </>
+                :
+                null}
+
             <StyledButton>회원가입</StyledButton>
         </LoginTemplate>
     )
 }
-export default SignInTemplate;
+export default AuthForm;

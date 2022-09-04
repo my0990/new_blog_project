@@ -1,5 +1,3 @@
-import SignInTemplate from "./components/login/SignInTemplate";
-
 function App() {
   return (
     <div className="App">

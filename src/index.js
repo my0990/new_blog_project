@@ -4,19 +4,29 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import SignInTemplate from './components/login/SignInTemplate';
-import SignUpTemplate from './components/login/SignUpTemplate';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import { Provider } from 'react-redux';
+// import configureStore from "@reduxjs/toolkit";///
+import { createStore } from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import rootReducer from './module';
+
+
+const store = createStore(rootReducer, composeWithDevTools);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-  <BrowserRouter>
-  <Routes>
-    <Route path='/' element={<App />} />
-    <Route path='/signin' element={<SignInTemplate />} />
-    <Route path='/signup' element={<SignUpTemplate />} />
-  </Routes>
-
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App />} />
+        <Route path='/signin' element={<LoginPage />} />
+        <Route path='/signup' element={<RegisterPage />} />
+      </Routes>
+    </BrowserRouter>
+  </Provider>
   // </React.StrictMode>
 );
 

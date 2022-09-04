@@ -19,11 +19,11 @@ const Wrapper = styled.div`
     p {
         font-size: 22px;
         margin-top: 3rem;
-        margin-bottom: 5rem;
+        margin-bottom: 3rem;
     }
 `
 
-const LoginTemplate = ({children}) => {
+const AuthTemplate = ({children}) => {
     return(
         <Contaner>
             <Wrapper>
@@ -34,4 +34,4 @@ const LoginTemplate = ({children}) => {
     )
 }
 
-export default LoginTemplate;
+export default AuthTemplate;
