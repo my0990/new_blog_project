@@ -10,9 +10,9 @@ const Input = styled.input`
     font-size: 18px;
 `
 
-const StyledInput = ({children}) => {
+const StyledInput = ({children, ...props}) => {
     return(
-        <Input placeholder={children} />
+        <Input placeholder={children} {...props}/>
     )
 }
 

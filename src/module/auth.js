@@ -19,9 +19,9 @@ export const initializeForm = createAction(INITIALIZE_FORM, form => form);
 //초기값
 const initialStage = {
     register: {
-    username: '',
-    password: '',
-    passwordconfirm: '',
+        username: '',
+        password: '',
+        passwordConfirm: '',
     },
     login: {
         username: '',

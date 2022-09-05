@@ -37,23 +37,50 @@ const ErrorMessage = styled.div`
     margin-bottom: 1rem;
 `
 
-const AuthForm = ({type, error}) => {
+const AuthForm = ({type, error, onChange, onSubmit, form}) => {
     
     return(
         <LoginTemplate>
-            <ErrorMessage>{error}</ErrorMessage>
-            <StyledInput>아이디</StyledInput>
-            <StyledInput>비밀번호</StyledInput>
-            {type === 'register'?
-            <>
-                <StyledInput>비밀번호확인</StyledInput>
-                <StyledButton>로그인</StyledButton>
-                <CenterLine>or</CenterLine>
-            </>
-                :
-                null}
+            <form onSubmit={onSubmit}>
+                <ErrorMessage>{error}</ErrorMessage>
+                <StyledInput
+                    autoComplete="username"
+                    name="username"
+                    onChange={onChange}
+                    value={form.username}
+                >
+                    아이디
+                </StyledInput>
+                <StyledInput
+                    autoComplete="new-password"
+                    name="password"
+                    type="password"
+                    onChange={onChange}
+                    value={form.password}
+                >
+                    비밀번호
+                </StyledInput>
+                {type === 'register'?
+                <>
+                    <StyledInput
+                        autoComplete="new-password"
+                        name="passwordConfirm"
+                        type="password"
+                        onChange={onChange}
+                        value={form.passwordConfirm}
+                    >
+                        비밀번호확인
+                    </StyledInput>
+                    <StyledButton>
+                        로그인
+                    </StyledButton>
+                    <CenterLine>or</CenterLine>
+                </>
+                    :
+                    null}
 
-            <StyledButton>회원가입</StyledButton>
+                <StyledButton>회원가입</StyledButton>
+            </form>
         </LoginTemplate>
     )
 }
